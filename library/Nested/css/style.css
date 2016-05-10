@@ -1,0 +1,44 @@
+*{
+	padding: 0px;
+	border: 0px;
+	margin: 0px;
+}
+
+input,select{
+	border: solid 1px #ccc;
+	padding: 3px;
+	margin: 4px 0px;
+}
+
+.clr{ clear: both;}
+
+.floatLeft{ float: left;}
+
+.floatRight{ float: right;}
+
+.textLeft{ text-align: left;}
+
+.textRight{ text-align: right;}
+
+.textCenter{ text-align: center;}
+
+.bold{
+	font-weight: bold;
+}
+
+.main{
+	padding: 10px;
+	width: 800px;
+}
+#list{
+	
+	border-left: solid 1px #ccc;
+	border-top: solid 1px #ccc;
+}
+
+#list td {
+	border-right: solid 1px #ccc;
+	border-bottom: solid 1px #ccc;
+	padding: 3px;	
+}
+

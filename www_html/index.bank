@@ -1,0 +1,36 @@
+<?php
+use Flywheel\Base;
+require realpath('../bootstrap.php');
+$globalCnf = require ROOT_PATH . '/config.cfg.php';
+$config = Base::mergeArray( $globalCnf, require __DIR__ . '/../apps/Customer/Config/main.cfg.php');
+
+$env = Base::ENV_PRO;
+
+if ($env == Base::ENV_DEV) {
+    restore_error_handler();
+    restore_exception_handler();
+}
+
+try {
+    $app = Base::createWebApp($config, $env, true);
+
+    if(isset($_SERVER['HTTP_ORIGIN']) && preg_match('/taobao.com|tmall.com|alibaba.com|1688.com|alibaba.vn|paipai.com|eelly.com/',$_SERVER['HTTP_ORIGIN'])){
+        $response = \Flywheel\Factory::getResponse(); //::getResponse();
+        $response->setHeader('Access-Control-Allow-Origin', $_SERVER['HTTP_ORIGIN']);
+        $response->setHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
+        $response->setHeader('Access-Control-Allow-Headers', "X-PINGARUNER");
+        $response->setHeader('Access-Control-Max-Age', "1728000");
+        $response->setHeader('Access-Control-Allow-Credentials', "true");
+        $response->setHeader('Content-Length', "0");
+        $response->setHeader('Content-Type', "text/plain");
+    }
+
+    $app->run();
+} catch (\Exception $e) {
+    if ($env == Base::ENV_DEV) {
+        \Flywheel\Exception::printExceptionInfo($e);
+    } else {
+        \Core\ErrorHandler::printError($e->getCode());
+    }
+    \Core\ErrorHandler::exceptionHandling($e);
+}

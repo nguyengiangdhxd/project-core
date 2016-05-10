@@ -1,0 +1,38 @@
+div.tableScroll {
+    clear: both;
+    height: 450px;
+    overflow: auto;
+    width: 100%;
+}
+div.tableScroll {
+    overflow: hidden;
+    width: 100%;
+}
+div.tableScroll table {
+    float: left;
+}
+thead.fixedHeader tr {
+    position: relative;
+}
+thead.fixedHeader th {
+    font-weight: normal;
+    padding: 4px 3px;
+    text-align: left
+}
+
+tbody.scrollContent {
+    display: block;
+    height: 400px;
+    overflow: auto;
+    width: 100%
+}
+tbody.scrollContent tr{
+    width: 100%;
+    display: table;
+}
+
+thead.fixedHeader {
+    display: table;
+    overflow: auto;
+    width: 100%
+}

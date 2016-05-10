@@ -1,0 +1,168 @@
+.page-login-ide{
+    background-color: #fafafa!important;
+    position: relative;
+}
+.page-login-ide .login-container{
+    position: absolute;
+    float: none!important;
+    height: 330px;
+    margin: 0 auto;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    box-shadow: 0px 1px 1px 0px #ccc;
+}
+.btn-export-ide{
+    background: #1e74c5;
+    color: #fff;
+}
+.btn-export-ide:hover, .btn-export-ide:focus{
+    background: #1e74c5;
+    color: #fff;
+}
+.tbl-list-ide{
+    border: 1px solid #fff;
+}
+.tbl-list-ide > thead > tr{
+    background: #4E8BD9;
+}
+.tbl-list-ide > thead > tr > th{
+    color: #fff;
+    text-transform: capitalize;
+    padding-left: 10px;
+}
+.tbl-list-ide > tbody > tr{
+    border: 2px solid transparent;
+}
+.tbl-list-ide > tbody > tr > td:first-child{
+    padding-left: 18px;
+}
+.tbl-list-ide > tbody > tr:hover{
+    border: 2px solid #4E8BD9!important;
+}
+.tbl-list-ide > tbody > tr:hover td{
+    border-top: 2px solid #4E8BD9!important;
+}
+.tbl-list-ide > tbody > tr > td{
+    padding: 10px;
+}
+ul.box-btn-ide{
+    list-style: none;
+    padding-left: 10px;
+    margin-top: 20px;
+}
+ul.box-btn-ide li{
+    display: inline-block;
+    border: 1px solid #ccc;
+    margin-left: -5px;
+    padding: 3px 15px;
+}
+ul.box-btn-ide li:hover{
+    cursor: pointer;
+}
+ul.box-btn-ide li a{
+    color: #000;
+}
+.hover-li{
+    border: 1px solid #000 !important;
+}
+.checkbox-top {
+    margin-top: 30px !important;
+}
+._paging{
+    cursor: pointer;
+}
+
+
+/*** FILE PRICE UPLOAD PREVIEW AND EDIT FORM ***/
+.file-price-preview-ctn .variant-from-box {
+    margin-bottom: 15px;
+}
+
+.file-price-preview-ctn .variant-from-box:last-child {
+    margin-bottom: 0;
+}
+
+/*** PRODUCTS LIST ****/
+.item-product-td .item-link {
+    margin-top: 10px;
+    font-size: 12px;
+    opacity:0;
+    clear: both;
+    overflow: hidden;
+    height: 0;
+
+    -webkit-transition: all .3s ease .15s;
+    -moz-transition: all .3s ease .15s;
+    -o-transition: all .3s ease .15s;
+    -ms-transition: all .3s ease .15s;
+    transition: all .3s ease .15s;
+}
+
+.item-product-td:hover .item-link {
+    opacity:1;
+    height: 25px;
+}
+.content-customer{
+   /* margin-left: -70px;*/
+    margin-top: -66px;
+}
+.style-paging{
+    display: inline-block;
+    float: right;
+    margin-top: -10px;
+}
+.row-items-ide{
+    padding: 5px;
+}
+.row-items-ide p{
+    margin: 0;
+    line-height: 35px;
+}
+.row-items-ide .input-price-ide{
+    padding-left: 0!important;
+    padding-right: 10px!important;
+}
+.label-ide{
+    line-height: 35px;
+}
+.footer-content{
+    margin-top: 20px !important;
+}
+.image-content{
+    margin-top: 10px !important;
+}
+.update-price{
+   /* margin-top: -2px;*/
+    position: absolute;
+    margin-top: 0px;
+    margin-left: 7px;
+
+}
+.style-image{
+    width: 30px; height: 40px;
+    margin-top: 13px;
+}
+.style-image-header{
+    width: 80px; height: 90px;
+}
+.md9{
+    padding-right: 20px!important;
+    padding-left: 0!important;
+}
+p.title-product-ide{
+    font-size: 12px;
+    color: rgba(45,45,45,0.45);
+}
+input.input-style{
+    margin-bottom: 10px;
+}
+.btn-group-ide button{
+    margin-right: 7px;
+}
+.label-chosen{
+    margin-top: 5px;
+}
+.sale-price{
+    text-decoration: line-through;
+}
