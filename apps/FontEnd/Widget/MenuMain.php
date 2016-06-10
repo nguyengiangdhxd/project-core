@@ -24,11 +24,12 @@ class MenuMain extends \Flywheel\Html\Widget\Menu
             'auth' => Base::getApp()->getController()->customerLogin()
         ]);
     }*/
-    /*private function _buildMenu() {
+    private function _buildMenu() {
         foreach($this->_menus as $m) {
             if (!empty($m['items']) || (isset($m['url']) && $m['url'] != '#')) {
                 $this->items[] = $m;
             }
         }
-    }*/
+    }
+    
 }
