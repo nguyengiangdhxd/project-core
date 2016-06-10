@@ -1,0 +1,3 @@
+madarinApp.Controller('menuCtrl',function () {
+    
+});

@@ -8,6 +8,8 @@
 
 namespace FontEnd\Controller;
 
+use Flywheel\Html\Widget\Menu;
+
 class Home extends CustomerBase
 {
 
@@ -15,7 +17,12 @@ class Home extends CustomerBase
     {
         $this->setLayout('home');
         $this->setView("Customer/home");
-        $this->view()->assign('variable',"nguyen hoang giang đã cấu hính thành công :D");
+        $menus = \Menus::select()->execute();
+        $this->view()->assign('variable',$menus);
+        $menus = \Menus::select();
         return $this->renderComponent();
+    }
+    public function executeMenus(){
+        $menus = \Menus::select();
     }
 }
