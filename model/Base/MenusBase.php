@@ -9,6 +9,7 @@ use Flywheel\Model\ActiveRecord;
  * @property integer $id id primary auto_increment type : int(11)
  * @property string $name name type : varchar(200) max_length : 200
  * @property integer $parent parent type : int(11)
+ * @property string $alias alias type : varchar(55) max_length : 55
 
  * @method void setId(integer $id) set id value
  * @method integer getId() get id value
@@ -27,6 +28,12 @@ use Flywheel\Model\ActiveRecord;
  * @method static \Menus[] findByParent(integer $parent) find objects in database by parent
  * @method static \Menus findOneByParent(integer $parent) find object in database by parent
  * @method static \Menus retrieveByParent(integer $parent) retrieve object from poll by parent, get it from db if not exist in poll
+
+ * @method void setAlias(string $alias) set alias value
+ * @method string getAlias() get alias value
+ * @method static \Menus[] findByAlias(string $alias) find objects in database by alias
+ * @method static \Menus findOneByAlias(string $alias) find object in database by alias
+ * @method static \Menus retrieveByAlias(string $alias) retrieve object from poll by alias, get it from db if not exist in poll
 
 
  */
@@ -56,13 +63,18 @@ abstract class MenusBase extends ActiveRecord {
                 'auto_increment' => false,
                 'db_type' => 'int(11)',
                 'length' => 4),
+        'alias' => array('name' => 'alias',
+                'not_null' => false,
+                'type' => 'string',
+                'db_type' => 'varchar(55)',
+                'length' => 55),
      );
     protected static $_validate = array(
     );
     protected static $_validatorRules = array(
     );
     protected static $_init = false;
-    protected static $_cols = array('id','name','parent');
+    protected static $_cols = array('id','name','parent','alias');
 
     public function setTableDefinition() {
     }

@@ -1,6 +1,12 @@
 <?php
-$menus = \Menus::select();
+$query = \Menus::select();
+$menus = $query->execute();
 
+$name_menu= [];
+foreach ($menus as $item_menu){
+    /** @var $item_menu \Menus */
+    $name_menu[] = $item_menu;
+}
 
 ?>
 
@@ -50,7 +56,13 @@ $menus = \Menus::select();
                     </div>
                     <div id="main-menu">
                         <ul>
-                            <li class="has-sub active">
+                            <?php foreach ($name_menu as $item){ ?>
+                                <li class="has-sub">
+                                    <?php /** @var $item \Menus */ ?>
+                                    <a href="<?=$item->getAlias() ?>"><?=$item->getName()?></a>
+                                </li>
+                            <?php } ?>
+                            <!--<li class="has-sub active">
                                 <a href="#">Trang chủ</a>
                             </li>
                             <li class="has-sub mega">
@@ -248,7 +260,7 @@ $menus = \Menus::select();
                                         </ul>
                                     </li>
                                 </ul>
-                            </li>
+                            </li>-->
                         </ul>
                     </div><!-- end main menu -->
                 </div>
