@@ -11,6 +11,8 @@ $r = array(
     ),
     'tin-tuc' => array( // menu của tin tức
         'route' => 'ListNews'
-    )
+    ),
+    'tin-tuc/chi-tiet-bai-viet/{id:[_a-zA-Z0-9-]+}' => array(
+    'route' => 'DetailNews')
 );
 return $r;
