@@ -9,5 +9,8 @@ $r = array(
     '/' => array(
         'route'=>'Home/default'
     ),
+    'tin-tuc' => array( // menu của tin tức
+        'route' => 'ListNews'
+    )
 );
 return $r;

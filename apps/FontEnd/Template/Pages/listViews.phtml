@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en-gb" class="no-js">
+
+<head>
+
+    <title>News</title>
+
+    <!-- ***** meta ***** -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
+    <meta name="keywords" content="premium html template, unique premium template, multipurpose" />
+    <meta name="description" content="Welcome to CleanLab Template, a wonderful and premium product for multipurpose websites" />
+
+    <!-- ***** Favicons ***** -->
+    <link rel="shortcut icon" href="template_madarin/images/favicons/logo.png">
+    <link rel="apple-touch-icon" href="images/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="44x72" href="images/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="70x114" href="images/favicons/apple-touch-icon-114x114.png">
+
+    <!-- ***** Google Fonts ***** -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
+
+    <!-- ***** Addons Stylesheet ***** -->
+    <link rel="stylesheet" type="text/css" href="template_madarin/css/rev-settings.css" media="screen" />
+
+    <!-- ***** Bootstrap CSS Stylesheet ***** -->
+    <link rel="stylesheet" type="text/css" href="template_madarin/css/bootstrap.css">
+
+    <!-- ***** Main + Responsive CSS Stylesheet ***** -->
+    <link rel="stylesheet" type="text/css" href="template_madarin/css/icons-styles.css">
+    <link rel="stylesheet" type="text/css" href="template_madarin/css/template.css">
+    <link rel="stylesheet" type="text/css" href="template_madarin/css/responsive-devices.css" />
+    <!-- ***** Updates CSS Stylesheet (for future templates updates ***** -->
+    <link rel="stylesheet" type="text/css" href="template_madarin/css/updates.css">
+    <!-- ***** Custom CSS Stylesheet (where you should add your own css rules) ***** -->
+    <link rel="stylesheet" type="text/css" href="template_madarin/css/custom.css">
+
+    <!-- JS -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery.min.js">\x3C/script>')</script>
+</head>
+<body class="">
+<div id="page-wrapper" class="blog">
+    <?php $this->widget('app.Widget.MenuMain'); ?>
+
+    <div class="header-breadcrumb mbottom50">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 class="section-title fleft">News</h2>
+                    <ul class="reset-list">
+                        <li>
+                            <p>Home</p>
+                        </li>
+                        <li>/</li>
+                        <li class="active">
+                            <p>News</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div><!-- end header-breadcrumb -->
+    <div id="content">
+        <?php echo $buffer; ?>
+    </div>
+    <?php $this->widget('app.Widget.Footer'); ?>
+    <!-- end footer -->
+</div>
+<p id="back-top">
+    <a href="#top"><span class="icon-angle-up"></span></a>
+</p>
+
+
+<!-- JavaScript at the bottom for faster page loading -->
+<script type="text/javascript" src="template_madarin/js/modernizr.custom.js"></script>
+<script type="text/javascript" src="template_madarin/js/bootstrap.js"></script>
+<script type="text/javascript" src="template_madarin/js/clean-js-plugins.js"></script>
+
+<!-- CleanLab Scrips File -->
+<script type="text/javascript" src="js/cleanlab_script.js"></script>
+<script type="text/javascript">/* OWL Carousel */
+    $(document).ready(function() {
+        $(".blog-carousel").owlCarousel({
+
+            navigation : true, // Show next and prev buttons
+            autoPlay: true,
+            slideSpeed : 300,
+            paginationSpeed : 400,
+            singleItem: true,
+            pagination: false,
+            transitionStyle : "fade",
+            navigationText: [
+                "<i class='icon-angle-left animation'></i>",
+                "<i class='icon-angle-right animation'></i>"
+            ],
+
+        });
+    });
+</script>
+<script type="text/javascript">/* OWL Carousel */
+    $(document).ready(function() {
+        $(".testimonials5").owlCarousel({
+
+            navigation : false, // Show next and prev buttons
+            autoPlay: true,
+            slideSpeed : 300,
+            paginationSpeed : 400,
+            singleItem: true,
+            pagination: false,
+            transitionStyle : "fade",
+
+        });
+    });
+</script>
+
+</body>
+</html>

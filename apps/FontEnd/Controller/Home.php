@@ -22,7 +22,4 @@ class Home extends CustomerBase
         $menus = \Menus::select();
         return $this->renderComponent();
     }
-    public function executeMenus(){
-        $menus = \Menus::select();
-    }
 }
