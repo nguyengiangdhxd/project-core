@@ -36,6 +36,11 @@ $r = array(
         'route' => 'ProductDetail'
     ],
     'chi-tiet-san-pham/{id:[_a-zA-Z0-9-]+}' => array(
-        'route' => 'ProductDetail')
+        'route' => 'ProductDetail'),
+
+    ##########Dự án madarin ############
+    'danh-sach-bai-viet' => array(
+        'route' => 'MdListNews'
+    ),
 );
 return $r;

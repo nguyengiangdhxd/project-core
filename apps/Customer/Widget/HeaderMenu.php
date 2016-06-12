@@ -9,7 +9,7 @@ class HeaderMenu extends \Flywheel\Html\Widget\Menu {
     protected function _init()
     {
         parent::_init();
-        $this->_menus['tool'] = [
+        /*$this->_menus['tool'] = [
             'label' => 'Công cụ',
             'url' => ['addon'],
             'id' => '_addon',
@@ -22,7 +22,7 @@ class HeaderMenu extends \Flywheel\Html\Widget\Menu {
             'url' => ['customer_profile'],
             'id' => '_customer_profile',
             'icon'=> 'fa fa-user'
-        ];
+        ];*/
 
         //finance
         $this->_menus['logout'] = [
