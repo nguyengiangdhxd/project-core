@@ -1,0 +1,137 @@
+.lbl-detail-ide{
+    width: 45%;
+    float: left;
+    font-weight: 500;
+}
+.switchery-default{
+  border-radius: 20px;
+  height: 20px;
+  width: 33px;
+}
+.switchery-default > small{
+    width: 20px;
+    height: 20px;
+}
+.title-page-ide{
+    font-size: 25px;
+}
+
+.fileUpload-ide {
+  position: relative;
+  border: 2px dashed #ccc;
+  color: #ccc;
+  height: 85px;
+  width: 13%;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  margin-left: auto;
+  margin-right: auto;
+}
+.fileUpload-ide span{
+  font-size: 35px;
+}
+.fileUpload-ide input.upload {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 85px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+@media all and (max-width: 768px){
+  .fileUpload-ide{
+    height: 65px;
+  }
+}
+
+ul.icon-hover-ide{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-left: 0;
+    margin-top: 40%;
+    display: none;
+}
+ul.icon-hover-ide li{
+  display: inline-block;
+  list-style: none;
+  background: #48b0f7;
+  padding: 0px 5px;
+  border-radius: 50%;
+  margin-left: 5px;
+}
+ul.icon-hover-ide li a{
+  color: #fff;
+}
+
+.img-detail-ide:hover{
+    opacity: 0.8;
+}
+.img-detail-ide:hover ul.icon-hover-ide{
+    display: block;
+}
+
+#upload-preview-img > li{
+  float: left;
+  width: 10%;
+  height: 85px;
+  padding-right: 10px;
+  position: relative;
+  list-style: none;
+}
+@media all and (max-width: 768px) {
+  #upload-preview-img > li{
+    width: 25%;
+    height: 65px;
+  }
+}
+#upload-preview-img > li > img{
+  width: 100%;
+  height: 100%;
+  cursor: move;
+}
+
+.block-logs-ide li{
+    list-style: none;
+}
+.content-log-ide{
+    width: 80%;
+    float: left;
+}
+.date-log-ide{
+    color: #121212;
+    font-size: 11px;
+}
+
+.block-active-ide li{
+    list-style: none;
+    position: relative;
+}
+.avarta-active-ide{
+    float: left;
+    width: 40px;
+    height: 40px;
+}
+.avarta-active-ide img{
+    border-radius: 50%;
+}
+.date-active-ide{
+    color: #121212;
+    font-size: 11.1px;
+    position: absolute;
+    right: 0;
+    bottom: 5px;
+}
+.ui-sortable {
+    list-style-type: none;
+    padding: 0;
+}
+.sale-price-ide{
+    color: #bfbfbf;
+    text-decoration: line-through;
+}

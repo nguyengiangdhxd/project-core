@@ -16,7 +16,7 @@ abstract class CustomerBase extends Web{
     public function beforeExecute(){
         parent::beforeExecute();
 
-       /* if ($this->_need_login == true) {
+        if ($this->_need_login == true) {
 
             $auth = CustomerAppAuth::getInstance();
 
@@ -35,7 +35,7 @@ abstract class CustomerBase extends Web{
                     )));
                 }
             }
-        }*/
+        }
         $this->_initTemplate();
     }
 

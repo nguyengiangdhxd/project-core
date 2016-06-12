@@ -13,6 +13,8 @@ $r = array(
         'route' => 'ListNews'
     ),
     'tin-tuc/chi-tiet-bai-viet/{id:[_a-zA-Z0-9-]+}' => array(
-    'route' => 'DetailNews')
+    'route' => 'DetailNews'),
+    'chi-tiet-bai-viet' => array(
+        'route' => 'DetailNews')
 );
 return $r;

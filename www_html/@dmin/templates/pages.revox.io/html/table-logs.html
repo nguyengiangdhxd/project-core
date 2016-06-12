@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta names="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <title>Upload file làm giá</title>
+    <link rel="stylesheet" type="text/css" href="./../assets/plugins/boostrapv3/css/bootstrap.min.css?v="
+          media="screen"/>
+    <link rel="stylesheet" type="text/css" href="./../assets/plugins/pace/pace-theme-flash.css?v=" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="./../assets/plugins/font-awesome/css/font-awesome.css?v="
+          media="screen"/>
+    <link rel="stylesheet" type="text/css" href="./../assets/plugins/jquery-scrollbar/jquery.scrollbar.css?v="
+          media="screen"/>
+    <link rel="stylesheet" type="text/css" href="./../assets/plugins/bootstrap-select2/select2.css?v=" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="./../assets/plugins/switchery/css/switchery.min.css?v="
+          media="screen"/>
+    <link rel="stylesheet" type="text/css" href="./..//pages/css/pages-icons.css?v=" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="./..//pages/css/pages.css?v=" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="./..//pages/css/styles.css?v=" media="screen"/>
+
+    <link rel="stylesheet" type="text/css" href="./../assets/css/table-logs.css"/>
+
+
+    <script type="text/javascript" src="./../assets/plugins/jquery/jquery-1.11.1.min.js?v=1"></script>
+
+</head>
+<body class="fixed-header">
+<nav class="page-sidebar" data-pages="sidebar">
+    <!--menu ben trai cuablank template-->
+    <div class="sidebar-overlay-slide from-top" id="appMenu">
+        <div class="row">
+            <div class="col-xs-6 no-padding">
+                <a href="#" class="p-l-40"><img src="./../assets/img/demo/social_app.svg" alt="socail"></a>
+            </div>
+            <div class="col-xs-6 no-padding">
+                <a href="#" class="p-l-10"><img src="./../assets/img/demo/email_app.svg" alt="socail"></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6 m-t-20 no-padding">
+                <a href="#" class="p-l-40"><img src="./../assets/img/demo/calendar_app.svg" alt="socail"></a>
+            </div>
+            <div class="col-xs-6 m-t-20 no-padding">
+                <a href="#" class="p-l-10"><img src="./../assets/img/demo/add_more.svg" alt="socail"></a>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-header">
+        <img src="./../assets/img/logo_white.png" alt="logo" class="brand" data-src="./../assets/img/logo_white.png"
+             data-src-retina="./../assets/img/logo_white_2x.png" width="78" height="22">
+
+        <div class="sidebar-header-controls">
+            <button type="button" class="btn btn-xs sidebar-slide-toggle btn-link m-l-20" data-pages-toggle="#appMenu">
+                <i class="fa fa-angle-down fs-16"></i></button>
+            <button type="button" class="btn btn-link visible-lg-inline" data-toggle-pin="sidebar"><i
+                    class="fa fs-12"></i></button>
+        </div>
+    </div>
+    <div class="sidebar-menu">
+        <ul class="menu-items">
+            <li class="m-t-30">
+                <a href="http://itemd.t90.vn/Customer/default"><span class="title">Dashboard</span></a>
+                <span class="icon-thumbnail bg-success"><i class="pg-home"></i></span>
+            </li>
+            <li class="">
+                <a href="javascript:"><span class="title">Sản phẩm</span></a>
+                <span class="icon-thumbnail "><i class="fa fa-list"></i></span>
+                <ul class="sub-menu">
+                    <li class="">
+                        <a href="product_list">DS sản phẩm</a>
+                        <span class="icon-thumbnail">ds</span>
+                    </li>
+                    <li class="">
+                        <a href="price_policy/upload_items_price">Up file giá</a>
+                        <span class="icon-thumbnail">up</span>
+                    </li>
+                </ul>
+            </li>
+            <li class="">
+                <a href="customer_profile"><span class="title">Cá nhân</span></a>
+                <span class="icon-thumbnail "><i class="fa fa-user"></i></span>
+            </li>
+            <li class="">
+                <a href="addon"><span class="title">Công cụ</span></a>
+                <span class="icon-thumbnail "><i class="fa fa-wrench"></i></span>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+    <!--widget menu bên trái của giao diện-->
+
+</nav>
+<div class="page-container">
+<!--menu header-->
+
+<div class="header ">
+<div class="pull-left full-height visible-sm visible-xs">
+
+    <div class="sm-action-bar">
+        <a href="#" class="btn-link toggle-sidebar" data-toggle="sidebar">
+            <span class="icon-set menu-hambuger"></span>
+        </a>
+    </div>
+
+</div>
+
+<div class="pull-right full-height visible-sm visible-xs">
+
+    <div class="sm-action-bar"> <!-- ẩn thay đổi giao diện của người d-->
+        <a href="#" class="btn-link" data-toggle="quickview" data-toggle-element="#quickview">
+            <span class="icon-set menu-hambuger-plus"></span>
+        </a>
+    </div>
+
+</div>
+
+<div class=" pull-left sm-table">
+    <div class="header-inner">
+        <div class="brand inline">
+            <img src="./../assets/img/logo.png" alt="logo" data-src="./../assets/img/logo.png"
+                 data-src-retina="./../assets/img/logo_2x.png" width="78" height="22">
+        </div>
+
+        <ul class="notification-list no-margin hidden-sm hidden-xs b-grey b-l b-r no-style p-l-30 p-r-20 hidden">
+            <!--thêm class hidden để ẩn tạm-->
+            <li class="p-r-15 inline">
+                <div class="dropdown">
+                    <a href="javascript:;" id="notification-center" class="icon-set globe-fill"
+                       data-toggle="dropdown">
+                        <span class="bubble"></span>
+                    </a>
+
+                    <div class="dropdown-menu notification-toggle" role="menu"
+                         aria-labelledby="notification-center">
+
+                        <div class="notification-panel">
+
+                            <div class="notification-body scrollable">
+
+                                <div class="notification-item unread clearfix">
+
+                                    <div class="heading open">
+                                        <a href="#" class="text-complete">
+                                            <i class="pg-map fs-16 m-r-10"></i>
+                                            <span class="bold">Carrot Design</span>
+                                            <span class="fs-12 m-l-10">David Nester</span>
+                                        </a>
+
+                                        <div class="pull-right">
+                                            <div class="thumbnail-wrapper d16 circular inline m-t-15 m-r-10 toggle-more-details">
+                                                <div><i class="fa fa-angle-left"></i>
+                                                </div>
+                                            </div>
+                                            <span class=" time">few sec ago</span>
+                                        </div>
+                                        <div class="more-details">
+                                            <div class="more-details-inner">
+                                                <h5 class="semi-bold fs-16">“Apple’s Motivation - Innovation
+                                                    <br>
+                                                    distinguishes between <br>
+                                                    A leader and a follower.”</h5>
+
+                                                <p class="small hint-text">
+                                                    Commented on john Smiths wall.
+                                                    <br> via pages framework.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="option" data-toggle="tooltip" data-placement="left"
+                                         title="mark as read">
+                                        <a href="#" class="mark"></a>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="notification-item  clearfix">
+                                    <div class="heading">
+                                        <a href="#" class="text-danger">
+                                            <i class="fa fa-exclamation-triangle m-r-10"></i>
+                                            <span class="bold">98% Server Load</span>
+                                            <span class="fs-12 m-l-10">Take Action</span>
+                                        </a>
+                                        <span class="pull-right time">2 mins ago</span>
+                                    </div>
+
+                                    <div class="option">
+                                        <a href="#" class="mark"></a>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="notification-item  clearfix">
+                                    <div class="heading">
+                                        <a href="#" class="text-warning-dark">
+                                            <i class="fa fa-exclamation-triangle m-r-10"></i>
+                                            <span class="bold">Warning Notification</span>
+                                            <span class="fs-12 m-l-10">Buy Now</span>
+                                        </a>
+                                        <span class="pull-right time">yesterday</span>
+                                    </div>
+
+                                    <div class="option">
+                                        <a href="#" class="mark"></a>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="notification-item unread clearfix">
+                                    <div class="heading">
+                                        <div class="thumbnail-wrapper d24 circular b-white m-r-5 b-a b-white m-t-10 m-r-10">
+                                            <img width="30" height="30"
+                                                 data-src-retina="./../assets/img/profiles/1x.jpg"
+                                                 data-src="./../assets/img/profiles/1.jpg" alt=""
+                                                 src="a./..//ssets/img/profiles/1.jpg">
+                                        </div>
+                                        <a href="#" class="text-complete">
+                                            <span class="bold">Revox Design Labs</span>
+                                            <span class="fs-12 m-l-10">Owners</span>
+                                        </a>
+                                        <span class="pull-right time">11:00pm</span>
+                                    </div>
+
+                                    <div class="option" data-toggle="tooltip" data-placement="left"
+                                         title="mark as read">
+                                        <a href="#" class="mark"></a>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="notification-footer text-center">
+                                <a href="#" class="">Read all notifications</a>
+                                <a data-toggle="refresh" class="portlet-refresh text-black pull-right" href="#">
+                                    <i class="pg-refresh_new"></i>
+                                </a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </li>
+            <li class="p-r-15 inline">
+                <a href="#" class="icon-set clip "></a>
+            </li>
+            <li class="p-r-15 inline">
+                <a href="#" class="icon-set grid-box"></a>
+            </li>
+        </ul>
+
+        <a href="#" class="search-link hidden" data-toggle="search"><i class="pg-search"></i>Type anywhere to
+            <span class="bold">search</span></a> <!--thêm class hidden ẩn điều kiện tìm kiếm--> </div>
+</div>
+<div class=" pull-right">
+    <div class="header-inner hidden"> <!--thêm hidden ẩn chat box-->
+        <a href="#" class="btn-link icon-set menu-hambuger-plus m-l-20 sm-no-margin hidden-sm hidden-xs"
+           data-toggle="quickview" data-toggle-element="#quickview"></a>
+    </div>
+</div>
+<div class=" pull-right">
+
+    <div class="visible-lg visible-md m-t-10">
+        <div class="pull-left p-r-10 p-t-10 fs-16 font-heading">
+            <span class="semi-bold">alitech</span>
+        </div>
+        <div class="dropdown pull-right">
+            <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                <span class="thumbnail-wrapper d32 circular inline m-t-5">
+                    <img src="http://www.gravatar.com/avatar/d30a9f51a98bd7242de2a80df2c8acd7?s=32&d=identicon&r=g"
+                         alt=""
+                         data-src="http://www.gravatar.com/avatar/d30a9f51a98bd7242de2a80df2c8acd7?s=32&d=identicon&r=g"
+                         width="32" height="32" class="">
+                </span>
+            </button>
+            <ul class="dropdown-menu profile-dropdown" role="menu">
+                <li class="">
+                    <a href="http://itemd.t90.vn/addon"><i class="pg-settings_small"></i>Công cụ</a>
+                </li>
+                <li class="">
+                    <a href="http://itemd.t90.vn/customer_profile"><i class="fa fa-user"></i>Cá nhân</a>
+                </li>
+                <li class="bg-master-lighter _logout">
+                    <a href="http://itemd.t90.vn/login/logout" class="clearfix">
+                        <span class="pull-left">Đăng xuất</span>
+                        <span class="pull-right"><i class="pg-power"></i></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
+<!--menu header của menu, chưa search , hình ảnh....-->
+
+<div class="page-content-wrapper">
+<div class="content">
+<!-- -->            <!--breadcrum của trang web , tạo thành w -->
+<script>
+    var list_item_url = 'http://itemd.t90.vn/ProductList';
+    var search_item = 'http://itemd.t90.vn/ProductList/GetListItem';
+</script>
+<!--hiển thị của breadCrums-->
+
+<div class="jumbotron" data-pages="parallax">
+    <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+        <div class="inner">
+            <ul class="breadcrumb">
+                <li>
+                    <a href="http://itemd.t90.vn/Customer/default">Home</a>
+                </li>
+                <li class="active">Danh sách sản phẩm</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- TABLE LOGS -->
+<div class="container-fluid container-fixed-lg">
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Upload file làm giá SP</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tableScroll">
+                <table class="table table-hover table-condensed">
+                    <thead class="fixedHeader">
+                    <tr>
+                        <th width="20%">Thời gian</th>
+                        <th width="40%">Nội dung</th>
+                        <th width="20%">Đối tượng</th>
+                        <th width="20%">Loại</th>
+                    </tr>
+                    </thead>
+                    <tbody class="scrollContent">
+                    <tr>
+                        <td width="20%" class="v-align-middle semi-bold">23/02/2016</td>
+                        <td width="40%" class="v-align-middle">Upload file giá sản phẩm</td>
+                        <td width="20%" class="v-align-middle semi-bold">Sản phẩm</td>
+                        <td width="20%" class="v-align-middle semi-bold">Thành công</td>
+                    </tr>
+                    <tr>
+                        <td width="20%" class="v-align-middle semi-bold">22/02/2016</td>
+                        <td width="40%" class="v-align-middle">Upload file giá sản phẩm</td>
+                        <td width="20%" class="v-align-middle semi-bold">Sản phẩm</td>
+                        <td width="20%" class="v-align-middle semi-bold">Thành công</td>
+                    </tr>
+                    <tr>
+                        <td width="20%" class="v-align-middle semi-bold">21/02/2016</td>
+                        <td width="40%" class="v-align-middle">Upload file giá sản phẩm</td>
+                        <td width="20%" class="v-align-middle semi-bold">Sản phẩm</td>
+                        <td width="20%" class="v-align-middle semi-bold">Thành công</td>
+                    </tr>
+                    <tr>
+                        <td width="20%" class="v-align-middle semi-bold">20/02/2016</td>
+                        <td width="40%" class="v-align-middle">Upload file giá sản phẩm</td>
+                        <td width="20%" class="v-align-middle semi-bold">Sản phẩm</td>
+                        <td width="20%" class="v-align-middle semi-bold">Thành công</td>
+                    </tr>
+                    <tr>
+                        <td width="20%" class="v-align-middle semi-bold">19/02/2016</td>
+                        <td width="40%" class="v-align-middle">Upload file giá sản phẩm</td>
+                        <td width="20%" class="v-align-middle semi-bold">Sản phẩm</td>
+                        <td width="20%" class="v-align-middle semi-bold">Thành công</td>
+                    </tr>
+                    <tr>
+                        <td width="20%" class="v-align-middle semi-bold">18/02/2016</td>
+                        <td width="40%" class="v-align-middle">Upload file giá sản phẩm</td>
+                        <td width="20%" class="v-align-middle semi-bold">Sản phẩm</td>
+                        <td width="20%" class="v-align-middle semi-bold">Thành công</td>
+                    </tr>
+                    <tr>
+                        <td width="20%" class="v-align-middle semi-bold">17/02/2016</td>
+                        <td width="40%" class="v-align-middle">Upload file giá sản phẩm</td>
+                        <td width="20%" class="v-align-middle semi-bold">Sản phẩm</td>
+                        <td width="20%" class="v-align-middle semi-bold">Thành công</td>
+                    </tr>
+                    <tr>
+                        <td width="20%" class="v-align-middle semi-bold">16/02/2016</td>
+                        <td width="40%" class="v-align-middle">Upload file giá sản phẩm</td>
+                        <td width="20%" class="v-align-middle semi-bold">Sản phẩm</td>
+                        <td width="20%" class="v-align-middle semi-bold">Thành công</td>
+                    </tr>
+                    <tr>
+                        <td width="20%" class="v-align-middle semi-bold">15/02/2016</td>
+                        <td width="40%" class="v-align-middle">Upload file giá sản phẩm</td>
+                        <td width="20%" class="v-align-middle semi-bold">Sản phẩm</td>
+                        <td width="20%" class="v-align-middle semi-bold">Thành công</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+<div class="container-fluid container-fixed-lg footer">
+    <div class="copyright sm-text-center">
+        <p class="small no-margin pull-left sm-pull-reset">
+            <span class="hint-text">Copyright © 2015 </span>
+            <span class="font-montserrat">Alimama Việt Nam</span>.
+            <span class="hint-text">All rights reserved. </span>
+        </p>
+
+        <div class="clearfix"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="overlay hide" data-pages="search">
+
+    <div class="overlay-content has-results m-t-20">
+
+        <div class="container-fluid">
+
+            <img class="overlay-brand" src="./../assets/img/logo.png" alt="logo"
+                 data-src="./../assets/img/logo.png"
+                 data-src-retina="./../assets/img/logo_2x.png" width="78" height="22">
+
+
+            <a href="#" class="close-icon-light overlay-close text-black fs-16">
+                <i class="pg-close"></i>
+            </a>
+
+        </div>
+
+        <div class="container-fluid">
+
+            <input id="overlay-search" class="no-border overlay-search bg-transparent" placeholder="Search..."
+                   autocomplete="off" spellcheck="false">
+            <br>
+
+            <div class="inline-block">
+                <div class="checkbox right">
+                    <input id="checkboxn" type="checkbox" value="1" checked="checked">
+                    <label for="checkboxn"><i class="fa fa-search"></i> Search within page</label>
+                </div>
+            </div>
+            <div class="inline-block m-l-10">
+                <p class="fs-13">Press enter to search</p>
+            </div>
+
+        </div>
+
+        <div class="container-fluid">
+    <span>
+    <strong>suggestions :</strong>
+    </span>
+            <span id="overlay-suggestions"></span>
+            <br>
+
+            <div class="search-results m-t-40">
+                <p class="bold">Pages Search Results</p>
+
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <div class="">
+
+                            <div class="thumbnail-wrapper d48 circular bg-success text-white inline m-t-10">
+                                <div>
+                                    <img width="50" height="50"
+                                         src="./../assets/img/profiles/avatar.jpg"
+                                         data-src="./../assets/img/profiles/avatar.jpg"
+                                         data-src-retina="./../assets/img/profiles/avatar2x.jpg"
+                                         alt="">
+                                </div>
+                            </div>
+
+                            <div class="p-l-10 inline p-t-5">
+                                <h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> on pages</h5>
+
+                                <p class="hint-text">via john smith</p>
+                            </div>
+                        </div>
+
+
+                        <div class="">
+
+                            <div class="thumbnail-wrapper d48 circular bg-success text-white inline m-t-10">
+                                <div>T</div>
+                            </div>
+
+                            <div class="p-l-10 inline p-t-5">
+                                <h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> related topics
+                                </h5>
+
+                                <p class="hint-text">via pages</p>
+                            </div>
+                        </div>
+
+
+                        <div class="">
+
+                            <div class="thumbnail-wrapper d48 circular bg-success text-white inline m-t-10">
+                                <div><i class="fa fa-headphones large-text "></i>
+                                </div>
+                            </div>
+
+                            <div class="p-l-10 inline p-t-5">
+                                <h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> music</h5>
+
+                                <p class="hint-text">via pagesmix</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+
+                        <div class="">
+
+                            <div class="thumbnail-wrapper d48 circular bg-info text-white inline m-t-10">
+                                <div><i class="fa fa-facebook large-text "></i>
+                                </div>
+                            </div>
+
+                            <div class="p-l-10 inline p-t-5">
+                                <h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> on facebook</h5>
+
+                                <p class="hint-text">via facebook</p>
+                            </div>
+                        </div>
+
+
+                        <div class="">
+
+                            <div class="thumbnail-wrapper d48 circular bg-complete text-white inline m-t-10">
+                                <div><i class="fa fa-twitter large-text "></i>
+                                </div>
+                            </div>
+
+                            <div class="p-l-10 inline p-t-5">
+                                <h5 class="m-b-5">Tweats on<span class="semi-bold result-name"> ice cream</span></h5>
+
+                                <p class="hint-text">via twitter</p>
+                            </div>
+                        </div>
+
+
+                        <div class="">
+
+                            <div class="thumbnail-wrapper d48 circular text-white bg-danger inline m-t-10">
+                                <div><i class="fa fa-google-plus large-text "></i>
+                                </div>
+                            </div>
+
+                            <div class="p-l-10 inline p-t-5">
+                                <h5 class="m-b-5">Circles on<span class="semi-bold result-name"> ice cream</span></h5>
+
+                                <p class="hint-text">via google plus</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script type="text/javascript" src="./../assets/common.js?v=1"></script>
+<script type="text/javascript" src="./../assets/plugins/boostrapv3/js/bootstrap.min.js?v=1"></script>
+<script type="text/javascript" src="./../assets/plugins/pace/pace.min.js?v=1"></script>
+<script type="text/javascript" src="./../assets/plugins/modernizr.custom.js?v=1"></script>
+<script type="text/javascript" src="./../assets/plugins/jquery-ui/jquery-ui.min.js?v=1"></script>
+<script type="text/javascript" src="./../assets/plugins/jquery/jquery-easy.js?v=1"></script>
+<script type="text/javascript" src="./../assets/plugins/jquery-unveil/jquery.unveil.min.js?v=1"></script>
+<script type="text/javascript" src="./../assets/plugins/jquery-bez/jquery.bez.min.js?v=1"></script>
+<script type="text/javascript" src="./../assets/plugins/jquery-ios-list/jquery.ioslist.min.js?v=1"></script>
+<script type="text/javascript" src="./../assets/plugins/jquery-actual/jquery.actual.min.js?v=1"></script>
+<script type="text/javascript" src="./../assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js?v=1"></script>
+<script type="text/javascript" src="./../assets/plugins/bootstrap-select2/select2.min.js?v=1"></script>
+<script type="text/javascript" src="./../assets/plugins/classie/classie.js?v=1"></script>
+<script type="text/javascript" src="./../assets/plugins/switchery/js/switchery.min.js?v=1"></script>
+<script type="text/javascript" src="./../assets/js/scripts.js?v=1"></script>
+<script type="text/javascript" src="./../assets/js/theme_switcher.js?v=1"></script>
+<script type="text/javascript" src="./..//pages/js/pages.min.js?v=1"></script>
+<script type="text/javascript" src="./../assets/process/paginator.js?v=1"></script>
+<script type="text/javascript" src="./../assets/plugins/bootbox/bootbox.min.js?v=1"></script>
+<script type="text/javascript" src="./../assets/plugins/handlerbars/handlebars-v3.0.0.js?v=1"></script>
+<script type="text/javascript" src="./../assets/process/list_product.js?v=1"></script>
+</body>
+</html>
