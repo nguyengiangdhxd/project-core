@@ -1,10 +1,17 @@
+<?php
+/** @var  $detail \News */
+
+
+?>
+
+
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
             <div class="blog-post mbottom50">
                 <!--<img src="images/blog/img12.jpg" alt="" class="img-responsive mbottom30">-->
                 <div class="post-head mbottom30">
-                    <h2>Aliquam accumsan mattis diam, eu dapibus purus tristique convallis. Donec arcu nisi, iaculis a feugiat vitae, mollis non urna. Vestibulum erat diam, pretium non commodo eu.</h2>
+                    <h2><?php echo $detail['title'] ?></h2>
                     <span class="tcolor">June 22, 2013</span>
                     <span class="icon-heart2 mleft10"><b>17</b></span>
                     <span class="icon-bubbles4 mleft10 mright10"><b class="mleft5">28</b></span>
@@ -28,6 +35,6 @@
             </div>
             <div class="separator mbottom50"></div>
         </div>
-        <?php $this->widget('app.Widget.Category'); ?>
+        <?php $this->widget('app.Widget.Categorys'); ?>
     </div>
 </div>

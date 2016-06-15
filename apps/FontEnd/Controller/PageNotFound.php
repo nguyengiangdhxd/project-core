@@ -6,7 +6,7 @@
  * Time: 2:27 PM
  */
 
-namespace Customer\Controller;
+namespace FontEnd\Controller;
 
 
 class PageNotFound extends CustomerBase {
