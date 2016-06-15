@@ -11,11 +11,12 @@ $document->addJs('assets/plugins/jquery-autonumeric/autoNumeric.js');
 $document->addJs('assets/plugins/bootstrap-tag/bootstrap-tagsinput.min.js');
 $document->addCss('assets/plugins/bootstrap-tag/bootstrap-tagsinput.css');
 $document->addJs('assets/js/jquery.slimscroll.min.js');
-$title = 'Danh sách sản phẩm';
+$title = 'Danh sách bài viết';
 ?>
 <script>
-    var list_item_url = '<?php echo $this->createUrl('danh-sach-san-pham') ?>';
-    var search_item = '<?php echo $this->createUrl('ProductList/GetListItem') ?>';
+    var list_item_url = '<?php echo $this->createUrl('danh-sach-bai-viet') ?>';
+    //var search_item = '<?php /*echo $this->createUrl('ProductList/GetListItem')*/ ?>';
+    var search_item = '<?php echo $this->createUrl('MdListNews/GetListNews') ?>';
 </script>
 <?php
 $this->widget('app.Widget.BreadcrumbsPage', array(

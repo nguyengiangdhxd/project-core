@@ -19,4 +19,12 @@ class MdListNews extends \Customer\Controller\CustomerBase
         $this->setView('Madarin/listNews');
         return $this->renderComponent();
     }
+
+    /**
+     * lấy về danh sách của các bài viết
+     */
+    public function executeGetListNews(){
+        
+
+    }
 }

@@ -13,7 +13,11 @@ use Flywheel\Model\ActiveRecord;
  * @property string $summary summary type : varchar(255) max_length : 255
  * @property string $content content type : text max_length : 
  * @property string $footer footer type : varchar(255) max_length : 255
- * @property date $created_time created_time type : date
+ * @property datetime $created_time created_time type : datetime
+ * @property string $type type type : enum('CN','VN') max_length : 2
+ * @property integer $category_id category_id type : int(11)
+ * @property string $active active type : enum('ACTIVE','INACTIVE') max_length : 8
+ * @property datetime $modifile_time modifile_time type : datetime
 
  * @method void setId(integer $id) set id value
  * @method integer getId() get id value
@@ -62,6 +66,30 @@ use Flywheel\Model\ActiveRecord;
  * @method static \News[] findByCreatedTime(\Flywheel\Db\Type\DateTime $created_time) findByCreatedTime(string $created_time) find objects in database by created_time
  * @method static \News findOneByCreatedTime(\Flywheel\Db\Type\DateTime $created_time) findOneByCreatedTime(string $created_time) find object in database by created_time
  * @method static \News retrieveByCreatedTime(\Flywheel\Db\Type\DateTime $created_time) retrieveByCreatedTime(string $created_time) retrieve object from poll by created_time, get it from db if not exist in poll
+
+ * @method void setType(string $type) set type value
+ * @method string getType() get type value
+ * @method static \News[] findByType(string $type) find objects in database by type
+ * @method static \News findOneByType(string $type) find object in database by type
+ * @method static \News retrieveByType(string $type) retrieve object from poll by type, get it from db if not exist in poll
+
+ * @method void setCategoryId(integer $category_id) set category_id value
+ * @method integer getCategoryId() get category_id value
+ * @method static \News[] findByCategoryId(integer $category_id) find objects in database by category_id
+ * @method static \News findOneByCategoryId(integer $category_id) find object in database by category_id
+ * @method static \News retrieveByCategoryId(integer $category_id) retrieve object from poll by category_id, get it from db if not exist in poll
+
+ * @method void setActive(string $active) set active value
+ * @method string getActive() get active value
+ * @method static \News[] findByActive(string $active) find objects in database by active
+ * @method static \News findOneByActive(string $active) find object in database by active
+ * @method static \News retrieveByActive(string $active) retrieve object from poll by active, get it from db if not exist in poll
+
+ * @method void setModifileTime(\Flywheel\Db\Type\DateTime $modifile_time) setModifileTime(string $modifile_time) set modifile_time value
+ * @method \Flywheel\Db\Type\DateTime getModifileTime() get modifile_time value
+ * @method static \News[] findByModifileTime(\Flywheel\Db\Type\DateTime $modifile_time) findByModifileTime(string $modifile_time) find objects in database by modifile_time
+ * @method static \News findOneByModifileTime(\Flywheel\Db\Type\DateTime $modifile_time) findOneByModifileTime(string $modifile_time) find object in database by modifile_time
+ * @method static \News retrieveByModifileTime(\Flywheel\Db\Type\DateTime $modifile_time) retrieveByModifileTime(string $modifile_time) retrieve object from poll by modifile_time, get it from db if not exist in poll
 
 
  */
@@ -112,15 +140,60 @@ abstract class NewsBase extends ActiveRecord {
                 'length' => 255),
         'created_time' => array('name' => 'created_time',
                 'not_null' => false,
-                'type' => 'date',
-                'db_type' => 'date'),
+                'type' => 'datetime',
+                'db_type' => 'datetime'),
+        'type' => array('name' => 'type',
+                'not_null' => false,
+                'type' => 'string',
+                'db_type' => 'enum(\'CN\',\'VN\')',
+                'length' => 2),
+        'category_id' => array('name' => 'category_id',
+                'not_null' => false,
+                'type' => 'integer',
+                'auto_increment' => false,
+                'db_type' => 'int(11)',
+                'length' => 4),
+        'active' => array('name' => 'active',
+                'default' => 'ACTIVE',
+                'not_null' => false,
+                'type' => 'string',
+                'db_type' => 'enum(\'ACTIVE\',\'INACTIVE\')',
+                'length' => 8),
+        'modifile_time' => array('name' => 'modifile_time',
+                'not_null' => false,
+                'type' => 'datetime',
+                'db_type' => 'datetime'),
      );
     protected static $_validate = array(
+        'type' => array(
+            array('name' => 'ValidValues',
+                'value' => 'CN|VN',
+                'message'=> 'type\'s values is not allowed'
+            ),
+        ),
+        'active' => array(
+            array('name' => 'ValidValues',
+                'value' => 'ACTIVE|INACTIVE',
+                'message'=> 'active\'s values is not allowed'
+            ),
+        ),
     );
     protected static $_validatorRules = array(
+        'type' => array(
+            array('name' => 'ValidValues',
+                'value' => 'CN|VN',
+                'message'=> 'type\'s values is not allowed'
+            ),
+        ),
+        'active' => array(
+            array('name' => 'ValidValues',
+                'value' => 'ACTIVE|INACTIVE',
+                'message'=> 'active\'s values is not allowed'
+            ),
+        ),
     );
     protected static $_init = false;
-    protected static $_cols = array('id','menu_id','title','image','summary','content','footer','created_time');
+    protected static $_cols = array('id','menu_id','title','image','summary','content','footer','created_time','type','category_id','active','modifile_time');
 
     public function setTableDefinition() {
     }

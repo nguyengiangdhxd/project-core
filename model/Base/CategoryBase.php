@@ -8,7 +8,8 @@ use Flywheel\Model\ActiveRecord;
 
  * @property integer $id id primary auto_increment type : int(11)
  * @property string $category_name category_name type : varchar(50) max_length : 50
- * @property date $createdTime createdTime type : date
+ * @property datetime $createdTime createdTime type : datetime
+ * @property integer $menu_id menu_id type : int(11)
 
  * @method void setId(integer $id) set id value
  * @method integer getId() get id value
@@ -27,6 +28,12 @@ use Flywheel\Model\ActiveRecord;
  * @method static \Category[] findByCreatedTime(\Flywheel\Db\Type\DateTime $createdTime) findByCreatedTime(string $createdTime) find objects in database by createdTime
  * @method static \Category findOneByCreatedTime(\Flywheel\Db\Type\DateTime $createdTime) findOneByCreatedTime(string $createdTime) find object in database by createdTime
  * @method static \Category retrieveByCreatedTime(\Flywheel\Db\Type\DateTime $createdTime) retrieveByCreatedTime(string $createdTime) retrieve object from poll by createdTime, get it from db if not exist in poll
+
+ * @method void setMenuId(integer $menu_id) set menu_id value
+ * @method integer getMenuId() get menu_id value
+ * @method static \Category[] findByMenuId(integer $menu_id) find objects in database by menu_id
+ * @method static \Category findOneByMenuId(integer $menu_id) find object in database by menu_id
+ * @method static \Category retrieveByMenuId(integer $menu_id) retrieve object from poll by menu_id, get it from db if not exist in poll
 
 
  */
@@ -52,15 +59,21 @@ abstract class CategoryBase extends ActiveRecord {
                 'length' => 50),
         'createdTime' => array('name' => 'createdTime',
                 'not_null' => false,
-                'type' => 'date',
-                'db_type' => 'date'),
+                'type' => 'datetime',
+                'db_type' => 'datetime'),
+        'menu_id' => array('name' => 'menu_id',
+                'not_null' => false,
+                'type' => 'integer',
+                'auto_increment' => false,
+                'db_type' => 'int(11)',
+                'length' => 4),
      );
     protected static $_validate = array(
     );
     protected static $_validatorRules = array(
     );
     protected static $_init = false;
-    protected static $_cols = array('id','category_name','createdTime');
+    protected static $_cols = array('id','category_name','createdTime','menu_id');
 
     public function setTableDefinition() {
     }
