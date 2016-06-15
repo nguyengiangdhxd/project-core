@@ -30,6 +30,7 @@ class DetailNews extends CustomerBase
         foreach ($newDetail as $item) {
             /** @var $item \News */
             $arr['title'] = $item->getTitle();
+            $arr['content'] = $item->getContent();
         }
         $this->view()->assign('detail',$arr);
         return $this->renderComponent();
