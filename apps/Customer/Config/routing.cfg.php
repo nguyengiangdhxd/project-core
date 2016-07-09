@@ -42,5 +42,8 @@ $r = array(
     'danh-sach-bai-viet' => array(
         'route' => 'MdListNews'
     ),
+    'bai-viet-moi' => array(
+        'route' => 'MdNewpost'
+    ),
 );
 return $r;

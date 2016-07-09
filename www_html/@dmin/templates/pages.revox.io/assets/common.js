@@ -17,10 +17,10 @@ $(document).ready(function () {
         }
     });
 
-    $(".loading-dot-dot-dot").Loadingdotdotdot({
-        "speed": 400,
-        "maxDots": 4,
-        "word": $(this).data('text')
-    });
+    // $(".loading-dot-dot-dot").Loadingdotdotdot({
+    //     "speed": 400,
+    //     "maxDots": 4,
+    //     "word": $(this).data('text')
+    // });
 });
 

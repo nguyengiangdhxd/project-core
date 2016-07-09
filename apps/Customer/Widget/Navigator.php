@@ -48,6 +48,12 @@ class Navigator extends Menu {
             'icon' => 'fa fa-list',
             'items' => [
                 [
+                    'label' => 'Thêm bài viết mới',
+                    'url' => 'bai-viet-moi',
+                    'icon' => 'ne',
+                    'id' => ''
+                ],
+                [
                     'label' => 'DS Bài viết',
                     'url' => 'danh-sach-bai-viet',
                     'icon' => 'ds',
