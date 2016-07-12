@@ -3,13 +3,8 @@
 use Flywheel\Document\Html;
 $document = $this->document();
 /** @var Html $document */
+
 $document->addJs('assets/plugins/jquery/jquery-1.11.1.min.js');
-$document->addJs('assets/plugins/notify.min.js');
-$document->addJs('assets/plugins/jquery-autonumeric/autoNumeric.js');
-$document->addJs('assets/plugins/bootstrap-tag/bootstrap-tagsinput.min.js');
-$document->addCss('assets/plugins/bootstrap-tag/bootstrap-tagsinput.css');
-$document->addJs('assets/js/jquery.slimscroll.min.js');
-/*$document->addJs('assets/ckeditor/ckeditor.js');*/
 $title = 'Danh sách bài viết';
 
 ?>
@@ -43,6 +38,42 @@ $title = 'Danh sách bài viết';
                 <script  type="text/javascript">
                     CKEDITOR.replace( 'content' );
                 </script>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Tác giả
+            </td>
+            <td>
+                <select class="form-control">
+                    <?php foreach ($customer as $item_customer){?>
+                        <?php /** @var \Customer $item_customer */ ?>
+                            <option value="<?=$item_customer->getId() ?>"><?= $item_customer->getUsername() ?></option>
+                    <?php }?>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Danh mục bài viết
+            </td>
+            <td>
+                <select class="form-control">
+                        <optgroup label="Tin tức">
+                            <option value="volvo">Tiếng Việt</option>
+                            <option value="saab">Tiếng Trung</option>
+                        </optgroup>
+                        <optgroup label="Học Tiếng Việt">
+                            <option value="mercedes">Học tiếng việt</option>
+                        </optgroup>
+                        <optgroup label="Học Tiếng Trung">
+                            <option value="mercedes">Khóa học cơ bản</option>
+                            <option>Ôn thi</option>
+                        </optgroup>
+                        <optgroup label="Blogger">
+                            <option value="mercedes">Blogger</option>
+                        </optgroup>
+                </select>
             </td>
         </tr>
     </table>

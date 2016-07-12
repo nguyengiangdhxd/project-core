@@ -27,6 +27,7 @@ use Flywheel\Model\ActiveRecord;
  * @property datetime $created_time created_time type : datetime
  * @property datetime $modified_time modified_time type : datetime
  * @property datetime $last_login_time last_login_time type : datetime
+ * @property string $fullname fullname type : varchar(35) max_length : 35
 
  * @method void setId(integer $id) set id value
  * @method integer getId() get id value
@@ -154,6 +155,12 @@ use Flywheel\Model\ActiveRecord;
  * @method static \Customer findOneByLastLoginTime(\Flywheel\Db\Type\DateTime $last_login_time) findOneByLastLoginTime(string $last_login_time) find object in database by last_login_time
  * @method static \Customer retrieveByLastLoginTime(\Flywheel\Db\Type\DateTime $last_login_time) retrieveByLastLoginTime(string $last_login_time) retrieve object from poll by last_login_time, get it from db if not exist in poll
 
+ * @method void setFullname(string $fullname) set fullname value
+ * @method string getFullname() get fullname value
+ * @method static \Customer[] findByFullname(string $fullname) find objects in database by fullname
+ * @method static \Customer findOneByFullname(string $fullname) find object in database by fullname
+ * @method static \Customer retrieveByFullname(string $fullname) retrieve object from poll by fullname, get it from db if not exist in poll
+
 
  */
 abstract class CustomerBase extends ActiveRecord {
@@ -177,107 +184,112 @@ abstract class CustomerBase extends ActiveRecord {
                 'db_type' => 'varchar(10)',
                 'length' => 10),
         'name' => array('name' => 'name',
-                'not_null' => true,
+                'not_null' => false,
                 'type' => 'string',
                 'db_type' => 'varchar(255)',
                 'length' => 255),
         'username' => array('name' => 'username',
-                'not_null' => true,
+                'not_null' => false,
                 'type' => 'string',
                 'db_type' => 'varchar(100)',
                 'length' => 100),
         'status' => array('name' => 'status',
                 'default' => 'INACTIVE',
-                'not_null' => true,
+                'not_null' => false,
                 'type' => 'string',
                 'db_type' => 'enum(\'ACTIVE\',\'INACTIVE\',\'BAN\')',
                 'length' => 8),
         'phone' => array('name' => 'phone',
-                'not_null' => true,
+                'not_null' => false,
                 'type' => 'string',
                 'db_type' => 'varchar(100)',
                 'length' => 100),
         'email' => array('name' => 'email',
-                'not_null' => true,
+                'not_null' => false,
                 'type' => 'string',
                 'db_type' => 'varchar(255)',
                 'length' => 255),
         'balance' => array('name' => 'balance',
                 'default' => 0.00,
-                'not_null' => true,
+                'not_null' => false,
                 'type' => 'number',
                 'auto_increment' => false,
                 'db_type' => 'double(10,2)',
                 'length' => 10),
         'debts' => array('name' => 'debts',
                 'default' => 0.00,
-                'not_null' => true,
+                'not_null' => false,
                 'type' => 'number',
                 'auto_increment' => false,
                 'db_type' => 'double(10,2)',
                 'length' => 10),
         'district_id' => array('name' => 'district_id',
-                'not_null' => true,
+                'not_null' => false,
                 'type' => 'integer',
                 'auto_increment' => false,
                 'db_type' => 'int(11)',
                 'length' => 4),
         'province_id' => array('name' => 'province_id',
                 'default' => 0,
-                'not_null' => true,
+                'not_null' => false,
                 'type' => 'integer',
                 'auto_increment' => false,
                 'db_type' => 'int(11)',
                 'length' => 4),
         'address' => array('name' => 'address',
-                'not_null' => true,
+                'not_null' => false,
                 'type' => 'string',
                 'db_type' => 'text'),
         'mobile' => array('name' => 'mobile',
-                'not_null' => true,
+                'not_null' => false,
                 'type' => 'string',
                 'db_type' => 'varchar(100)',
                 'length' => 100),
         'other_mobile' => array('name' => 'other_mobile',
-                'not_null' => true,
+                'not_null' => false,
                 'type' => 'string',
                 'db_type' => 'varchar(100)',
                 'length' => 100),
         'birthday' => array('name' => 'birthday',
                 'default' => '0000-00-00',
-                'not_null' => true,
+                'not_null' => false,
                 'type' => 'date',
                 'db_type' => 'date'),
         'password' => array('name' => 'password',
-                'not_null' => true,
+                'not_null' => false,
                 'type' => 'string',
                 'db_type' => 'char(72)',
                 'length' => 72),
         'secret' => array('name' => 'secret',
-                'not_null' => true,
+                'not_null' => false,
                 'type' => 'string',
                 'db_type' => 'char(32)',
                 'length' => 32),
         'last_login_ip' => array('name' => 'last_login_ip',
-                'not_null' => true,
+                'not_null' => false,
                 'type' => 'string',
                 'db_type' => 'varchar(255)',
                 'length' => 255),
         'created_time' => array('name' => 'created_time',
                 'default' => '0000-00-00 00:00:00',
-                'not_null' => true,
+                'not_null' => false,
                 'type' => 'datetime',
                 'db_type' => 'datetime'),
         'modified_time' => array('name' => 'modified_time',
                 'default' => '0000-00-00 00:00:00',
-                'not_null' => true,
+                'not_null' => false,
                 'type' => 'datetime',
                 'db_type' => 'datetime'),
         'last_login_time' => array('name' => 'last_login_time',
                 'default' => '0000-00-00 00:00:00',
-                'not_null' => true,
+                'not_null' => false,
                 'type' => 'datetime',
                 'db_type' => 'datetime'),
+        'fullname' => array('name' => 'fullname',
+                'not_null' => false,
+                'type' => 'string',
+                'db_type' => 'varchar(35)',
+                'length' => 35),
      );
     protected static $_validate = array(
         'username' => array(
@@ -306,7 +318,7 @@ abstract class CustomerBase extends ActiveRecord {
         ),
     );
     protected static $_init = false;
-    protected static $_cols = array('id','uid','name','username','status','phone','email','balance','debts','district_id','province_id','address','mobile','other_mobile','birthday','password','secret','last_login_ip','created_time','modified_time','last_login_time');
+    protected static $_cols = array('id','uid','name','username','status','phone','email','balance','debts','district_id','province_id','address','mobile','other_mobile','birthday','password','secret','last_login_ip','created_time','modified_time','last_login_time','fullname');
 
     public function setTableDefinition() {
     }

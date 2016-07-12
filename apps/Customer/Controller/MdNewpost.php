@@ -14,6 +14,11 @@ class MdNewpost extends CustomerBase
     public function executeDefault()
     {
         $this->setView('Madarin/newpost');
+        $customer = \Customer::select()->execute();
+
+        $this->view()->assign([
+            'customer' => $customer
+        ]);
         return $this->renderComponent();
     }
 }

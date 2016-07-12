@@ -10,6 +10,7 @@ use Flywheel\Model\ActiveRecord;
  * @property string $name name type : varchar(200) max_length : 200
  * @property integer $parent parent type : int(11)
  * @property string $alias alias type : varchar(55) max_length : 55
+ * @property string $code code type : varchar(255) max_length : 255
 
  * @method void setId(integer $id) set id value
  * @method integer getId() get id value
@@ -34,6 +35,12 @@ use Flywheel\Model\ActiveRecord;
  * @method static \Menus[] findByAlias(string $alias) find objects in database by alias
  * @method static \Menus findOneByAlias(string $alias) find object in database by alias
  * @method static \Menus retrieveByAlias(string $alias) retrieve object from poll by alias, get it from db if not exist in poll
+
+ * @method void setCode(string $code) set code value
+ * @method string getCode() get code value
+ * @method static \Menus[] findByCode(string $code) find objects in database by code
+ * @method static \Menus findOneByCode(string $code) find object in database by code
+ * @method static \Menus retrieveByCode(string $code) retrieve object from poll by code, get it from db if not exist in poll
 
 
  */
@@ -68,13 +75,28 @@ abstract class MenusBase extends ActiveRecord {
                 'type' => 'string',
                 'db_type' => 'varchar(55)',
                 'length' => 55),
+        'code' => array('name' => 'code',
+                'not_null' => false,
+                'type' => 'string',
+                'db_type' => 'varchar(255)',
+                'length' => 255),
      );
     protected static $_validate = array(
+        'code' => array(
+            array('name' => 'Unique',
+                'message'=> 'code\'s was used'
+            ),
+        ),
     );
     protected static $_validatorRules = array(
+        'code' => array(
+            array('name' => 'Unique',
+                'message'=> 'code\'s was used'
+            ),
+        ),
     );
     protected static $_init = false;
-    protected static $_cols = array('id','name','parent','alias');
+    protected static $_cols = array('id','name','parent','alias','code');
 
     public function setTableDefinition() {
     }

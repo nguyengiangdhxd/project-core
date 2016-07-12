@@ -6,5 +6,6 @@ colums:
     name: { name: name, type: string, db_type: string, alltypes: [string], ntype: varchar(200), length: 200, fixed: false, unsigned: false, values: {  }, primary: false, unique: false, default: null, notnull: true, auto_increment: false, extra: '' }
     parent: { name: parent, type: integer, db_type: integer, alltypes: [integer], ntype: int(11), length: 4, fixed: false, unsigned: false, values: {  }, primary: false, unique: false, default: null, notnull: true, auto_increment: false, extra: '' }
     alias: { name: alias, type: string, db_type: string, alltypes: [string], ntype: varchar(55), length: 55, fixed: false, unsigned: false, values: {  }, primary: false, unique: false, default: null, notnull: false, auto_increment: false, extra: '' }
+    code: { name: code, type: string, db_type: string, alltypes: [string], ntype: varchar(255), length: 255, fixed: false, unsigned: false, values: {  }, primary: false, unique: true, default: null, notnull: false, auto_increment: false, extra: '' }
 infos:
     _dbConnectName: menus
