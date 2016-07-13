@@ -15,10 +15,20 @@ class MdNewpost extends CustomerBase
     {
         $this->setView('Madarin/newpost');
         $customer = \Customer::select()->execute();
-
         $this->view()->assign([
             'customer' => $customer
         ]);
         return $this->renderComponent();
     }
+
+    public function executeGetParam(){
+        $title = $this->post('title'); // tiêu đề bài viết
+        $summary = $this->post('summary'); // tóm tắt nội dung
+        $content = $this->post('content'); // nội dung của baig biết
+        $author = $this->post('author'); // tên tác giả
+        $category = $this->post(''); // danh mục của bải viết
+
+
+    }
+
 }

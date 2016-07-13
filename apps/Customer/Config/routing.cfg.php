@@ -45,5 +45,8 @@ $r = array(
     'bai-viet-moi' => array(
         'route' => 'MdNewpost'
     ),
+    'TestMenu' => array(
+        'route' => 'TestMenu'
+    )
 );
 return $r;

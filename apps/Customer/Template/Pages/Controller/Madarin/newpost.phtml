@@ -22,7 +22,7 @@ $title = 'Danh sách bài viết';
         <tr>
             <td>Tóm tắt nội dung</td>
             <td>
-            <textarea  class="form-control" rows="5" id="comment">
+            <textarea  class="form-control" rows="5" name="summary" id="comment">
 
             </textarea>
             </td>
@@ -45,7 +45,7 @@ $title = 'Danh sách bài viết';
                 Tác giả
             </td>
             <td>
-                <select class="form-control">
+                <select class="form-control" name="author">
                     <?php foreach ($customer as $item_customer){?>
                         <?php /** @var \Customer $item_customer */ ?>
                             <option value="<?=$item_customer->getId() ?>"><?= $item_customer->getUsername() ?></option>
@@ -74,6 +74,11 @@ $title = 'Danh sách bài viết';
                             <option value="mercedes">Blogger</option>
                         </optgroup>
                 </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="submit">Thêm mới</button>
             </td>
         </tr>
     </table>
