@@ -5,7 +5,7 @@ $menus = $query->execute();
 $name_menu= [];
 foreach ($menus as $item_menu){
     /** @var $item_menu \Menus */
-    $name_menu[] = $item_menu;
+    $name_menu[] = $item_menu->toArray();
 }
 
 ?>
@@ -55,21 +55,48 @@ foreach ($menus as $item_menu){
                         <a class="zn-res-trigger" href="#"></a>
                     </div>
                     <div id="main-menu">
+<!--                       --><?php
+//                            function showMenu($menu,$parent_id = 0, $char = ''){
+//                                foreach ($menu as $key => $item_menu){
+//                                    if($item_menu['parent'] == $parent_id){
+//                                        echo '<option value="'.$item_menu[$key].'">';
+//                                            echo $char.$item_menu['name'];
+//                                        echo '<option>';
+//                                        unset($menu[$key]);
+//                                        showMenu($menu, $item_menu['id'], $char.'|---');
+//                                    }
+//                                }
+//                            }
+//                       ?>
+<!---->
+<!--                        <select>-->
+<!--                            --><?php //showMenu($name_menu); ?>
+<!--                        </select>-->
+
+
                         <ul>
-                            <?php foreach ($name_menu as $item){ ?>
-                                <li class="has-sub">
-                                    <?php /** @var $item \Menus */ ?>
-                                    <a href="<?=$item->getAlias() ?>"><?=$item->getName()?></a>
-                                </li>
-                            <?php } ?>
-                            <!--<li class="has-sub active">
-                                <a href="#">Trang chủ</a>
+                            <li class="has-sub mega">
+                                <a href="index.html">HOME</a>
+                            </li>
+                            <li class="has-sub active">
+                                <a href="#">News</a>
+                                <ul>
+                                    <li>
+                                        <a href="full-screen.html">Taiwan news</a>
+                                    </li>
+                                    <li>
+                                        <a href="boxed-slideshow.html">Vietnam News</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="has-sub">
+                                <a href="#">Learn VietNamese</a>
                             </li>
                             <li class="has-sub mega">
-                                <a href="index.html">Học Tiếng Trung</a>
-                                <ul class="mega-menu container clearfix">
-                                    <li class="col-sm-3">
-                                        <a href="http://#" class="mega-title">Homepages examples 1</a>
+                                <a href="index.html">Learn Taiwan</a>
+                                <ul class="mega-menu container clearfix" style="width: 600px;!important;margin: 0px;!important;">
+                                    <li class="col-sm-6">
+                                        <a href="http://#" class="mega-title">Khóa học cơ bản</a>
                                         <ul class="sub-menu clearfix">
                                             <li>
                                                 <a href="home-layout-1.html">Home Layout 1</a>
@@ -82,8 +109,8 @@ foreach ($menus as $item_menu){
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="col-sm-3">
-                                        <a href="http://#" class="mega-title">Homepages examples 2</a>
+                                    <li class="col-sm-6">
+                                        <a href="http://#" class="mega-title">Ôn thi</a>
                                         <ul class="sub-menu clearfix">
                                             <li>
                                                 <a href="home-layout-4.html">Home Layout 4</a>
@@ -96,173 +123,23 @@ foreach ($menus as $item_menu){
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="col-sm-3">
-                                        <a href="http://#" class="mega-title">Homepages examples 3</a>
-                                        <ul class="sub-menu clearfix">
-                                            <li>
-                                                <a href="home-layout-7.html">Home Layout 7</a>
-                                            </li>
-                                            <li>
-                                                <a href="home-layout-8.html">Home Layout 8</a>
-                                            </li>
-                                            <li>
-                                                <a href="home-layout-9.html">Home Layout 9</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="col-sm-3">
-                                        <a href="http://#" class="mega-title">Homepages examples 4</a>
-                                        <ul class="sub-menu clearfix">
-                                            <li>
-                                                <a href="home-layout-10.html">Home Layout 10</a>
-                                            </li>
-                                            <li>
-                                                <a href="one-page.html">One Page</a>
-                                            </li>
-                                            <li>
-                                                <a href="full-page.html">Full Page</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="has-sub">
-                                <a href="#">VIỆT NEWS</a>
-                                <ul>
-                                    <li>
-                                        <a href="portfolio.html">Portfolio</a>
-                                    </li>
-                                    <li>
-                                        <a href="portfolio-simple.html">Portfolio Simple Layout</a>
-                                    </li>
-                                    <li>
-                                        <a href="portfolio-full-width.html">Portfolio - Full Width</a>
-                                    </li>
-                                    <li>
-                                        <a href="single-project.html">Single Project</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">ĐÀI LOAN NEWS</a>
-                                <ul>
-                                    <li>
-                                        <a href="blog.html">Blog Style 1</a>
-                                    </li>
-                                    <li>
-                                        <a href="blog-2.html">Blog Style 2</a>
-                                    </li>
-                                    <li>
-                                        <a href="blog-3.html">Blog Style 3</a>
-                                    </li>
-                                    <li>
-                                        <a href="blog-4.html">Blog Style 4</a>
-                                    </li>
-                                    <li>
-                                        <a href="blog-timeline.html">Timeline Blog</a>
-                                    </li>
-                                    <li>
-                                        <a href="blog-masonry.html">Masonry Blog</a>
-                                    </li>
-                                    <li>
-                                        <a href="blog-masonry-full.html">Masonry Blog Full</a>
-                                    </li>
-                                    <li>
-                                        <a href="blog-post.html">Blog Post Style 1</a>
-                                    </li>
-                                    <li>
-                                        <a href="blog-post-2.html">Blog Post Style 2</a>
-                                    </li>
                                 </ul>
                             </li>
                             <li class="has-sub mega">
-                                <a href="contact.html">LIÊN HỆ</a>
-                                <ul class="mega-menu container clearfix hidden">
-                                    <li class="col-sm-3">
-                                        <a href="http://#" class="mega-title">Pages examples 1</a>
-                                        <ul class="sub-menu clearfix">
-                                            <li>
-                                                <a href="full-width-page.html">Full Width</a>
-                                            </li>
-                                            <li>
-                                                <a href="left-sidebar-page.html">Left Sidebar</a>
-                                            </li>
-                                            <li>
-                                                <a href="right-sidebar-page.html">Right Sidebar</a>
-                                            </li>
-                                            <li>
-                                                <a href="text-page.html">Text Page</a>
-                                            </li>
-                                            <li>
-                                                <a href="product-launch.html">Product Launch</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="col-sm-3">
-                                        <a href="http://#" class="mega-title">Pages examples 2</a>
-                                        <ul class="sub-menu clearfix">
-                                            <li>
-                                                <a href="faq.html">FAQ</a>
-                                            </li>
-                                            <li>
-                                                <a href="testimonials.html">Testimonials</a>
-                                            </li>
-                                            <li>
-                                                <a href="features.html">Features</a>
-                                            </li>
-                                            <li>
-                                                <a href="our-office.html">Our Office</a>
-                                            </li>
-                                            <li>
-                                                <a href="pricing.html">Pricing</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="col-sm-3">
-                                        <a href="http://#" class="mega-title">Pages examples 3</a>
-                                        <ul class="sub-menu clearfix">
-                                            <li>
-                                                <a href="timeline-page.html">Timeline Page</a>
-                                            </li>
-                                            <li>
-                                                <a href="clients.html">Clients</a>
-                                            </li>
-                                            <li>
-                                                <a href="team.html">Our Team</a>
-                                            </li>
-                                            <li>
-                                                <a href="team-member.html">Team Member</a>
-                                            </li>
-                                            <li>
-                                                <a href="about-us.html">About us</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="col-sm-3">
-                                        <a href="http://#" class="mega-title">Pages examples 4</a>
-                                        <ul class="sub-menu clearfix">
-                                            <li>
-                                                <a href="coming-soon.html">Coming Soon</a>
-                                            </li>
-                                            <li>
-                                                <a href="maintenance-mode.html">Maintenance Mode</a>
-                                            </li>
-                                            <li>
-                                                <a href="contact.html">Contact Page</a>
-                                            </li>
-                                            <li>
-                                                <a href="sitemap.html">Sitemap</a>
-                                            </li>
-                                            <li>
-                                                <a href="404.html">404 Error Page</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>-->
+                                <a href="#">BLOGGER</a>
+                            </li>
+                            <li class="has-sub">
+                                <a href="#">LIÊN HỆ</a>
+                            </li>
                         </ul>
                     </div><!-- end main menu -->
+                </div>
+            </div>
+        </div>
+    </div><!-- end main menu -->
+
+
+
                 </div>
             </div>
         </div>

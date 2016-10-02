@@ -8,6 +8,8 @@
 namespace Customer\Controller;
 
 
+use Flywheel\Http\Request;
+
 class MdNewpost extends CustomerBase
 {
 
@@ -18,6 +20,8 @@ class MdNewpost extends CustomerBase
         $this->view()->assign([
             'customer' => $customer
         ]);
+        // nhận giá trị khi submit form
+
         return $this->renderComponent();
     }
 

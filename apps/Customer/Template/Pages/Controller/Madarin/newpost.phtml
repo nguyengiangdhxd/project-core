@@ -5,10 +5,12 @@ $document = $this->document();
 /** @var Html $document */
 
 $document->addJs('assets/plugins/jquery/jquery-1.11.1.min.js');
+$document->addJs('assets/ckeditor/ckeditor.js','TOP');
 $title = 'Danh sách bài viết';
 
 ?>
-<script src="//cdn.ckeditor.com/4.5.9/standard/ckeditor.js"></script>
+<!--<script src="//cdn.ckeditor.com/4.5.9/standard/ckeditor.js"></script>-->
+<form method="post">
 <div class="container-fluid container-fixed-lg">
     <table class="table table-bordered">
         <tr>
@@ -35,8 +37,9 @@ $title = 'Danh sách bài viết';
             <textarea id="content" name="content" class="content">
 
             </textarea>
-                <script  type="text/javascript">
+                <script>
                     CKEDITOR.replace( 'content' );
+                   
                 </script>
             </td>
         </tr>
@@ -58,31 +61,42 @@ $title = 'Danh sách bài viết';
                 Danh mục bài viết
             </td>
             <td>
-                <select class="form-control">
-                        <optgroup label="Tin tức">
-                            <option value="volvo">Tiếng Việt</option>
-                            <option value="saab">Tiếng Trung</option>
-                        </optgroup>
-                        <optgroup label="Học Tiếng Việt">
-                            <option value="mercedes">Học tiếng việt</option>
-                        </optgroup>
-                        <optgroup label="Học Tiếng Trung">
-                            <option value="mercedes">Khóa học cơ bản</option>
-                            <option>Ôn thi</option>
-                        </optgroup>
-                        <optgroup label="Blogger">
-                            <option value="mercedes">Blogger</option>
-                        </optgroup>
+                <?php
+                    $query = \Menus::select();
+                    $menus = $query->execute();
+
+                    $name_menu= [];
+                    foreach ($menus as $item_menu){
+                        /** @var $item_menu \Menus */
+                        $name_menu[] = $item_menu->toArray();
+
+                    }
+                    function showMenu($menu,$parent_id = 0, $char = ''){
+                                foreach ($menu as $key => $item_menu){
+                                    if($item_menu['parent'] == $parent_id){
+                                        echo '<option value="'.$item_menu['id'].'">';
+                                        echo $char.$item_menu['name'];
+                                        echo '<option>';
+                                        unset($menu[$key]);
+                                        showMenu($menu, $item_menu['id'], $char.'|---');
+                                    }
+                                }
+                            }
+
+                       ?>
+
+                <select class="form-control" name="category">
+                    <?php showMenu($name_menu); ?>
                 </select>
             </td>
         </tr>
         <tr>
             <td colspan="2">
-                <button type="submit">Thêm mới</button>
+                <button type="submit" style="align-content: center">Thêm mới</button>
             </td>
         </tr>
     </table>
 
 </div>
-
+</form>
 

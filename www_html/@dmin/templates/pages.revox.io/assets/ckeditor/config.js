@@ -26,6 +26,12 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'about' }
 	];
 
+	config.extraPlugins = 'youtube';
+	config.youtube_width = '640';
+	config.youtube_height = '480';
+	config.youtube_related = true;
+	config.youtube_privacy = false;
+	config.youtube_older = false;
 	// Remove some buttons provided by the standard plugins, which are
 	// not needed in the Standard(s) toolbar.
 	config.removeButtons = 'Underline,Subscript,Superscript';
