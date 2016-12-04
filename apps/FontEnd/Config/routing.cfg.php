@@ -9,12 +9,16 @@ $r = array(
     '/' => array(
         'route'=>'Home/default'
     ),
+//    'tin-tuc/{code:[0-9]+}' => array( // menu của tin tức
+//        'route' => 'ListNews'
+//    ),
     'tin-tuc' => array( // menu của tin tức
         'route' => 'ListNews'
     ),
-    'tin-tuc/chi-tiet-bai-viet/{id:[_a-zA-Z0-9-]+}' => array(
-    'route' => 'DetailNews'),
+//    'tin-tuc/chi-tiet-bai-viet/{id:[_a-zA-Z0-9-]+}' => array(
+//    'route' => 'DetailNews'),
     'chi-tiet-bai-viet' => array(
-        'route' => 'DetailNews')
+        'route' => 'DetailNews'),
+
 );
 return $r;

@@ -94,14 +94,14 @@
             </div>
             <div class="center">
                 <ul class="pagination clearfix reset-list">
-                    <li><a href="#">&laquo;</a></li>
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&raquo;</a></li>
+
+                    <?php
+                    $paging = new \Flywheel\Paginator\Paginator(1,200,20,'#');
+                    echo $paging->render();
+
+                    ?>
                 </ul>
+
             </div><!-- end pagination -->
         </div>
         <?php $this->widget('app.Widget.Categorys'); ?>
